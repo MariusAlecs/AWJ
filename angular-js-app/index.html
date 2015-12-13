@@ -6,11 +6,602 @@
   <link rel="stylesheet" media="all" href="css/custom.css">
 </head>
 <body>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="">AWJ Base Project</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Masina</a></li>
+            <li><a href="#Medicamente">Medicamente</a></li>
+			<li><a href="#Copil">Copil</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <hr/>
 
   <div class="container">
     <div ng-controller="HomeController">
       <h1>{{ helloWorld }}</h1>
+      <p>Writing this live into the browser...</p>
     </div>
+  </div>
+
+  <hr/>
+
+  <!-- /resources1 -->
+  <div class="container">
+    <h1>Masina</h1>
+    <h2>List all resources</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Marca</th>
+        <th>Model</th>
+        <th>An fabricatie</th>
+        <th>Timbru mediu</th>
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr>
+        <td>Opel</td>
+        <td>Agila</td>
+        <td>2003</td>
+        <td>Platit</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Opel</td>
+        <td>Zafira</td>
+        <td>2003</td>
+        <td>Recuperat</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Dacia</td>
+        <td>MCV</td>
+        <td>2009</td>
+        <td>Platit</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Dacia</td>
+        <td>1310LI</td>
+        <td>2003</td>
+        <td>Nu</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Editeaza tabel</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Marca</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Marca">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Model</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Model">
+          </div>
+          <div class="form-group">
+            <label for="attribute3">An fabricatie</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="An Fab">
+          </div>
+          <div class="form-group">
+            <label for="attribute4">Timbru mediu</label>
+            <input type="text" class="form-control" id="attribute4" placeholder="Taxa">
+          </div>
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Adauga masina</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Marca</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="marca">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Model</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="model">
+          </div>
+          <div class="form-group">
+            <label for="attribute3">An fabricatie</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="fabricatie">
+          </div>
+          <div class="form-group">
+            <label for="attribute4">Timbru de mediu</label>
+            <input type="text" class="form-control" id="attribute4" placeholder="taxa">
+          </div>
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Afiseaza masina</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://www.ebursaauto.ro/pozeAuto/_sterse/2279562/OPEL_AGILA-2.jpg" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Opel</h1>
+        <p>Agila, 2003</p>
+        <h3>Detalii</h3>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Clasa</th>
+            <th>Dotari</th>
+          </tr>
+          <tr>
+            <td>Masina de oras</td>
+            <td>Fara</td>
+          </tr>
+          <tr>
+            <td>Masina studentului</td>
+            <td>Consum mic</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <!-- /resources2-->
+  <div class="container">
+  <a name="Medicamente">
+    <h1>Medicamente</h1>
+    <h2>List all resources</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Denumire</th>
+        <th>Data expirarii</th>
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr>
+        <td>Paracetamol</td>
+        <td>12-12-2016</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Nurofen</td>
+        <td>20-12-2017</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Aspirina</td>
+        <td>23-10-2019</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Naldorex</td>
+        <td>14-12-2015</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Editeaza tabelul</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Denumire</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Denumire">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Data expirarii</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Data exp">
+          </div>
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Adugare medicament</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Denumire</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Denumire">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Data expirarii</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Data_exp">
+          </div>
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Paracetamol</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://sanatate.bzi.ro/public/upload/photos/105/paracetamol_1.jpg" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Sistemul nervos</h1>
+        <h3>Angezice</h3>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Afectiune</th>
+            <th>Actiune terapeutica</th>
+          </tr>
+          <tr>
+            <td>Febra</td>
+            <td>Reduce temperatura</td>
+          </tr>
+          <tr>
+            <td>dureri de spate</td>
+            <td>Amelioreaza durerea</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+  
+  
+  
+  <!-- /resources3-->
+  <div class="container">
+  <a name="Copil">
+    <h1>Copil</h1>
+    <h2>List all resources</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Nume</th>
+        <th>Prenume</th>
+		<th>Data nasterii</th>
+        <th style="width:210px;">Options</th>
+      </tr>
+      <tr>
+        <td>Costea</td>
+        <td>Adrian</td>
+		<td>19-12-2000</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Obretin</td>
+        <td>Alecs</td>
+		<td>2-05-1999</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Stanciu</td>
+        <td>Emilian</td>
+		<td>19-07-2001</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+      <tr>
+        <td>Manolache</td>
+        <td>Stefan</td>
+		<td>11-11-2001</td>
+        <td>
+          <a href="">
+            <span class="label label-success">
+              Open
+              <span class="glyphicon glyphicon-folder-open"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-primary">
+              Edit
+              <span class="glyphicon glyphicon-edit"></span>
+            </span>
+          </a>
+          <a href="">
+            <span class="label label-danger">
+              Remove
+              <span class="glyphicon glyphicon-remove"></span>
+            </span>
+          </a>
+        </td>
+      </tr>
+    </table>
+
+    <div class="row">
+      <div class="col-md-3">
+        <h2>Editeaza tabelul</h2>
+        <form action="" method="">
+          <div class="form-group">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Nume">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Prenume</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Prenume">
+          </div>
+		  <div class="form-group">
+            <label for="attribute1">Data nasterii</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Data nasterii">
+          </div>
+          <button type="submit" class="btn btn-info">Save</button>
+        </form>
+      </div>
+
+
+      <div class="col-md-3 col-md-offset-6">
+        <h2>Adauga copil</h2>
+       <div class="form-group">
+            <label for="attribute1">Nume</label>
+            <input type="text" class="form-control" id="attribute1" placeholder="Nume">
+          </div>
+          <div class="form-group">
+            <label for="attribute2">Prenume</label>
+            <input type="text" class="form-control" id="attribute2" placeholder="Prenume">
+          </div>
+		  <div class="form-group">
+            <label for="attribute1">Data nasterii</label>
+            <input type="text" class="form-control" id="attribute3" placeholder="Data nasterii">
+          </div>
+          <button type="submit" class="btn btn-success">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Costea</h2>
+      </div>
+      <div class="col-md-2">
+        <img src="http://rezultate.academiahagi.ro/uploads/anunturi/852.jpg" class="img-thumbnail"/>
+      </div>
+      <div class="col-md-10">
+        <h1>Jucator</h1>
+        <h3>FC OLT</h3>
+        <table class="table table-bordered table-striped">
+          <tr>
+            <th>Echipe la care a activat</th>
+            <th>Goluri inscrise</th>
+          </tr>
+          <tr>
+            <td>FC Coteana</td>
+            <td>10</td>
+          </tr>
+          <tr>
+            <td>Scola nr.2</td>
+            <td>25</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <hr/>
+
+  <div class="container">
+    <footer class="footer">
+      <p class="text-muted pull-left">AWJ Base Project &copy; 2015-2016</p>
+      <p class="text-muted pull-right">Ghita Alecsandru-Marius-Marian, 333AA</p>
+    </footer>
   </div>
 
   <script src="js/jquery-1.11.3.min.js"></script>
