@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -26,12 +27,12 @@ public class MasinaController {
     masini.add(m3);
   }
 
-  @RequestMapping(value="/Masina", method = RequestMethod.GET)
+  @RequestMapping(value="/masina", method = RequestMethod.GET)
   public List<Masina> index() {
     return this.masini;
   }
 
-  @RequestMapping(value="/Masina/{id}", method = RequestMethod.GET)
+  @RequestMapping(value="/masina/{id}", method = RequestMethod.GET)
   public ResponseEntity show(@PathVariable("id") int id) {
     for(Masina m : this.masini) {
       if(m.getId() == id) {
@@ -41,7 +42,13 @@ public class MasinaController {
     return new ResponseEntity<String>(null, new HttpHeaders(), HttpStatus.NOT_FOUND);
   }
 
-  @RequestMapping(value="/Masina/{id}", method = RequestMethod.DELETE)
+  @RequestMapping(value="/masina", method = RequestMethod.POST)
+  public ResponseEntity create(@RequestBody Masina m) {
+    this.masini.add(m);
+	return new ResponseEntity<List<Masina>>(this.masini, new HttpHeaders(), HttpStatus.OK);
+  }
+  
+  @RequestMapping(value="/masina/{id}", method = RequestMethod.DELETE)
   public ResponseEntity remove(@PathVariable("id") int id) {
     for(Masina m : this.masini) {
       if(m.getId() == id) {
