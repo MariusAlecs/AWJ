@@ -33,7 +33,7 @@
   <hr/>
 
   <div class="container">
-    <div ng-controller="HomeController">
+    <div>
       <h1>{{ helloWorld }}</h1>
       <p>Writing this live into the browser...</p>
     </div>
@@ -42,531 +42,235 @@
   <hr/>
 
   <!-- /resources1 -->
-  <div class="container">
+  <div class="container" ng-controller="HomeController">
     <h1>Masina</h1>
     <h2>List all resources</h2>
     <table class="table table-bordered">
-      <tr>
-        <th>Marca</th>
-        <th>Model</th>
-        <th>An fabricatie</th>
-        <th>Timbru mediu</th>
-        <th style="width:210px;">Options</th>
-      </tr>
-      <tr>
-        <td>Opel</td>
-        <td>Agila</td>
-        <td>2003</td>
-        <td>Platit</td>
-        <td>
-          <a href="">
+	    <tr>
+            <th ng-repeat="field in fields">{{field | uppercase}}</th>
+            <th style="width:210px;">OPTIONS</th>
+        </tr>
+		
+		<tr ng-repeat="masina in masini" data-id="{{masina.id}}">
+            <td>{{ masina.name }}</td>
+            <td>{{ masina.id }}</td>
+            <td>
+                <a href="">
+				
             <span class="label label-success">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
           </a>
           <a href="">
-            <span class="label label-primary">
+            <button ng-click="setUpdateCar(masina)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
+            </button>
           </a>
           <a href="">
-            <span class="label label-danger">
+            <button ng-click="deleteMasina(masina.id)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Opel</td>
-        <td>Zafira</td>
-        <td>2003</td>
-        <td>Recuperat</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Dacia</td>
-        <td>MCV</td>
-        <td>2009</td>
-        <td>Platit</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Dacia</td>
-        <td>1310LI</td>
-        <td>2003</td>
-        <td>Nu</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-    </table>
+	  </table>
 
     <div class="row">
       <div class="col-md-3">
-        <h2>Editeaza tabel</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Marca</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Marca">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Model</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Model">
-          </div>
-          <div class="form-group">
-            <label for="attribute3">An fabricatie</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="An Fab">
-          </div>
-          <div class="form-group">
-            <label for="attribute4">Timbru mediu</label>
-            <input type="text" class="form-control" id="attribute4" placeholder="Taxa">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+        <h2>Editeaza masina</h2>
+		 
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="editCar.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="editCar.name">
+                </div>
+                <button type="submit" class="btn btn-info" ng-click="updateCar()">Save</button>
+            </form>
+        </div>
 
 
       <div class="col-md-3 col-md-offset-6">
         <h2>Adauga masina</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Marca</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="marca">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Model</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="model">
-          </div>
-          <div class="form-group">
-            <label for="attribute3">An fabricatie</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="fabricatie">
-          </div>
-          <div class="form-group">
-            <label for="attribute4">Timbru de mediu</label>
-            <input type="text" class="form-control" id="attribute4" placeholder="taxa">
-          </div>
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="masina.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="masina.name">
+                </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Afiseaza masina</h2>
-      </div>
-      <div class="col-md-2">
-        <img src="http://www.ebursaauto.ro/pozeAuto/_sterse/2279562/OPEL_AGILA-2.jpg" class="img-thumbnail"/>
-      </div>
-      <div class="col-md-10">
-        <h1>Opel</h1>
-        <p>Agila, 2003</p>
-        <h3>Detalii</h3>
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Clasa</th>
-            <th>Dotari</th>
-          </tr>
-          <tr>
-            <td>Masina de oras</td>
-            <td>Fara</td>
-          </tr>
-          <tr>
-            <td>Masina studentului</td>
-            <td>Consum mic</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
+                <button ng-click="addMasina(masina)" class="btn btn-success">Add</button>
+            </form>
+        </div>
+	</div>
 
-  <hr/>
+</div>
+
+<hr/>
 
   <!-- /resources2-->
-  <div class="container">
-  <a name="Medicamente">
-    <h1>Medicamente</h1>
+  <div class="container" ng-controller="HomController">
+    <h1>Medicament</h1>
     <h2>List all resources</h2>
     <table class="table table-bordered">
-      <tr>
-        <th>Denumire</th>
-        <th>Data expirarii</th>
-        <th style="width:210px;">Options</th>
-      </tr>
-      <tr>
-        <td>Paracetamol</td>
-        <td>12-12-2016</td>
-        <td>
-          <a href="">
+	    <tr>
+            <th ng-repeat="field in fields">{{field | uppercase}}</th>
+            <th style="width:210px;">OPTIONS</th>
+        </tr>
+		
+		<tr ng-repeat="medicament in medicamente" data-id="{{medicament.id}}">
+            <td>{{ medicament.name }}</td>
+            <td>{{ medicament.id }}</td>
+			<td>{{medicament.DATA.EXP}}</td>
+            <td>
+                <a href="">
+				
             <span class="label label-success">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
           </a>
           <a href="">
-            <span class="label label-primary">
+            <button ng-click="setUpdateMedic(medicament)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
+            </button>
           </a>
           <a href="">
-            <span class="label label-danger">
+            <button ng-click="deleteMedicament(medicament.id)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Nurofen</td>
-        <td>20-12-2017</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Aspirina</td>
-        <td>23-10-2019</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Naldorex</td>
-        <td>14-12-2015</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-    </table>
+	  </table>
 
     <div class="row">
       <div class="col-md-3">
-        <h2>Editeaza tabelul</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Denumire</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Denumire">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Data expirarii</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Data exp">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+        <h2>Editeaza medicament</h2>
+		 
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="editMedic.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="editMedic.name">
+                </div>
+                <button type="submit" class="btn btn-info" ng-click="updateMedic()">Save</button>
+            </form>
+        </div>
 
 
       <div class="col-md-3 col-md-offset-6">
-        <h2>Adugare medicament</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Denumire</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Denumire">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Data expirarii</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Data_exp">
-          </div>
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
+        <h2>Adauga medicament</h2>
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="medicament.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="medicament.name">
+                </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <h2>Paracetamol</h2>
-      </div>
-      <div class="col-md-2">
-        <img src="http://sanatate.bzi.ro/public/upload/photos/105/paracetamol_1.jpg" class="img-thumbnail"/>
-      </div>
-      <div class="col-md-10">
-        <h1>Sistemul nervos</h1>
-        <h3>Angezice</h3>
-        <table class="table table-bordered table-striped">
-          <tr>
-            <th>Afectiune</th>
-            <th>Actiune terapeutica</th>
-          </tr>
-          <tr>
-            <td>Febra</td>
-            <td>Reduce temperatura</td>
-          </tr>
-          <tr>
-            <td>dureri de spate</td>
-            <td>Amelioreaza durerea</td>
-          </tr>
-        </table>
-      </div>
-    </div>
-  </div>
+                <button ng-click="addMedicament(medicament)" class="btn btn-success">Add</button>
+            </form>
+        </div>
+	</div>
 
-  <hr/>
-  
+</div>
+
+<hr/>
   
   
   <!-- /resources3-->
-  <div class="container">
-  <a name="Copil">
+ <div class="container" ng-controller="HoController">
     <h1>Copil</h1>
     <h2>List all resources</h2>
     <table class="table table-bordered">
-      <tr>
-        <th>Nume</th>
-        <th>Prenume</th>
-		<th>Data nasterii</th>
-        <th style="width:210px;">Options</th>
-      </tr>
-      <tr>
-        <td>Costea</td>
-        <td>Adrian</td>
-		<td>19-12-2000</td>
-        <td>
-          <a href="">
+	    <tr>
+            <th ng-repeat="field in fields">{{field | uppercase}}</th>
+            <th style="width:210px;">OPTIONS</th>
+        </tr>
+		
+		<tr ng-repeat="copil in copii" data-id="{{copil.id}}">
+            <td>{{ copil.name }}</td>
+            <td>{{ copil.id }}</td>
+            <td>{{copil.varsta}}</td>
+			<td>
+                <a href="">
+				
             <span class="label label-success">
               Open
               <span class="glyphicon glyphicon-folder-open"></span>
             </span>
           </a>
           <a href="">
-            <span class="label label-primary">
+            <button ng-click="setUpdateKid(copil)" class="btn btn-info btn-xs">
               Edit
               <span class="glyphicon glyphicon-edit"></span>
-            </span>
+            </button>
           </a>
           <a href="">
-            <span class="label label-danger">
+            <button ng-click="deleteCopil(copil.id)" class="btn btn-danger btn-xs">
               Remove
               <span class="glyphicon glyphicon-remove"></span>
-            </span>
+            </button>
           </a>
         </td>
       </tr>
-      <tr>
-        <td>Obretin</td>
-        <td>Alecs</td>
-		<td>2-05-1999</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Stanciu</td>
-        <td>Emilian</td>
-		<td>19-07-2001</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-      <tr>
-        <td>Manolache</td>
-        <td>Stefan</td>
-		<td>11-11-2001</td>
-        <td>
-          <a href="">
-            <span class="label label-success">
-              Open
-              <span class="glyphicon glyphicon-folder-open"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-primary">
-              Edit
-              <span class="glyphicon glyphicon-edit"></span>
-            </span>
-          </a>
-          <a href="">
-            <span class="label label-danger">
-              Remove
-              <span class="glyphicon glyphicon-remove"></span>
-            </span>
-          </a>
-        </td>
-      </tr>
-    </table>
+	  </table>
 
     <div class="row">
       <div class="col-md-3">
-        <h2>Editeaza tabelul</h2>
-        <form action="" method="">
-          <div class="form-group">
-            <label for="attribute1">Nume</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Nume">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Prenume</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Prenume">
-          </div>
-		  <div class="form-group">
-            <label for="attribute1">Data nasterii</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="Data nasterii">
-          </div>
-          <button type="submit" class="btn btn-info">Save</button>
-        </form>
-      </div>
+        <h2>Editeaza copil</h2>
+		 
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="editKid.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="editKid.name">
+                </div>
+                <button type="submit" class="btn btn-info" ng-click="updateKid()">Save</button>
+            </form>
+        </div>
 
 
       <div class="col-md-3 col-md-offset-6">
         <h2>Adauga copil</h2>
-       <div class="form-group">
-            <label for="attribute1">Nume</label>
-            <input type="text" class="form-control" id="attribute1" placeholder="Nume">
-          </div>
-          <div class="form-group">
-            <label for="attribute2">Prenume</label>
-            <input type="text" class="form-control" id="attribute2" placeholder="Prenume">
-          </div>
-		  <div class="form-group">
-            <label for="attribute1">Data nasterii</label>
-            <input type="text" class="form-control" id="attribute3" placeholder="Data nasterii">
-          </div>
-          <button type="submit" class="btn btn-success">Add</button>
-        </form>
-      </div>
-    </div>
+        <form>
+                <div class="form-group">
+                    <label for="attribute1">ID</label>
+                    <input type="text" class="form-control" id="attribute1" placeholder="ID" ng-model="copil.id">
+                </div>
+                <div class="form-group">
+                    <label for="attribute2">NUME</label>
+                    <input type="text" class="form-control" id="attribute2" placeholder="NUME" ng-model="copil.name">
+                </div>
 
+                <button ng-click="addCopil(copil)" class="btn btn-success">Add</button>
+            </form>
+        </div>
+	</div>
+
+</div>
+
+<hr/>
     <div class="row">
       <div class="col-md-12">
         <h2>Costea</h2>
